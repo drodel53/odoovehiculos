@@ -1,0 +1,42 @@
+<odoo>
+<!--Vista de formulario-->
+    <record id = "view_vehiculo_form" model="ir.ui.view">
+        <field name="name">vehiculo.management.form</field>
+        <field name="model">vehiculo.management</field>
+        <field name="arch" type="xml">
+            <form string="Gestión de vehiculos">
+                <sheet>
+                    <group>
+                        <field name="matricula"/>
+                        <field name="marca"/>
+                        <field name="modelo"/>
+                        <field name="activo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vehiculo_tree" model="ir.ui.view">
+        <field name="name">vehiculo.management.tree</field>
+        <field name="model">vehiculo.management</field>
+        <field name="arch" type="xml">
+            <tree string="Vehículos">
+                <field name="matricula"/>
+                <field name="marca"/>
+                <field name="modelo"/>
+                <field name="activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_vehiculo_management" model="ir.actions.act_window">
+        <field name="name">Gestión de Vehículos</field>
+        <field name="res_model">vehiculo.management</field>
+        <field name="view_mode">tree, form</field>
+    </record>
+
+    <menuitem id="menu_vehiculo_management" name="Vehiculos" secuence="10"/>
+    <menuitem id="submenu_vehiculo_management" parent="menu_vehiculo_management"
+    name="Gestión de vehiculos" action="action_vehiculo_management"/>
+</odoo>
